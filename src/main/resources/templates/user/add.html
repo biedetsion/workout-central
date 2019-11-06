@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+<div th:text="${error}"></div>
+
+<form method="post" style="max-width:600px;" th:object="${user}">
+    <div class="form-group">
+        <label th:for="username">Username</label>
+        <input class="form-control" th:field="*{username}" />
+        <!--<input class="form-control" th:value="${username}" name="username" />-->
+
+        <span th:errors="*{username}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="password">Password</label>
+        <input class="form-control" type="password" th:field="*{password}" />
+        <!--<input class="form-control" type="password" th:value="${password}" name="username" />-->
+
+        <span th:errors="*{password}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="verify">Verify</label>
+        <!--<input class="form-control" th:field="*{username}" />-->
+        <input class="form-control" type="password" th:value="${verify}" name="verify" />
+
+        <!--<span th:errors="*{username}" class="error"></span>-->
+    </div>
+
+    <div class="form-group">
+        <label th:for="email">Email</label>
+        <!--<input class="form-control" th:field="*{username}" />-->
+        <!--<input class="form-control" type="email" th:value="${email}" name="email" />-->
+        <input class="form-control" type="email" th:field="*{email}" />
+        <!--<span th:errors="*{username}" class="error"></span>-->
+    </div>
+
+    <input type="submit" value="Update " />
+</form>
+
+</body>
+</html>

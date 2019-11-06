@@ -25,7 +25,7 @@ public class UserController {
     public String add(Model model, @ModelAttribute @Valid User user, Errors errors, String verify){
         // model.addAttribute(new User());
         if(!(user.getPassword().equals( verify) && (!errors.hasErrors())) ) {
-            model.addAttribute("error", "A big mistake!: "+user.getPassword() +":"+ verify);
+            model.addAttribute("error", "There's a problem: "+user.getPassword() +":"+ verify);
 
             return "user/add";
 
